@@ -37,6 +37,14 @@ ArrayList<TruyenTranh> truyenTranhArrayList;
         truyenTranhArrayList.add(new TruyenTranh("Thanh Guom Diet Quy","Chapter 106","https://st.nettruyenus.com/data/comics/235/thanh-guom-diet-quy.jpg"   ));
         truyenTranhArrayList.add(new TruyenTranh("7 Vien Ngoc Rong","Chapter 234","https://st.nettruyenus.com/data/comics/124/dragon-ball-rebon.jpg"   ));
         truyenTranhArrayList.add(new TruyenTranh("Cong Chua Ori","Chapter 7","https://st.nettruyenus.com/data/comics/185/co-dau-cua-obsidian.jpg"   ));
+        truyenTranhArrayList.add(new TruyenTranh("Cong Chua Ori","Chapter 7","https://st.nettruyenus.com/data/comics/185/co-dau-cua-obsidian.jpg"   ));
+        truyenTranhArrayList.add(new TruyenTranh("Cong Chua Ori","Chapter 7","https://st.nettruyenus.com/data/comics/185/co-dau-cua-obsidian.jpg"   ));
+        truyenTranhArrayList.add(new TruyenTranh("Cong Chua Ori","Chapter 7","https://st.nettruyenus.com/data/comics/185/co-dau-cua-obsidian.jpg"   ));
+        truyenTranhArrayList.add(new TruyenTranh("Cong Chua Ori","Chapter 7","https://st.nettruyenus.com/data/comics/185/co-dau-cua-obsidian.jpg"   ));
+        truyenTranhArrayList.add(new TruyenTranh("Cong Chua Ori","Chapter 7","https://st.nettruyenus.com/data/comics/185/co-dau-cua-obsidian.jpg"   ));
+        truyenTranhArrayList.add(new TruyenTranh("Cong Chua Ori","Chapter 7","https://st.nettruyenus.com/data/comics/185/co-dau-cua-obsidian.jpg"   ));
+        truyenTranhArrayList.add(new TruyenTranh("Cong Chua Ori","Chapter 7","https://st.nettruyenus.com/data/comics/185/co-dau-cua-obsidian.jpg"   ));
+
          adapter= new TruyenTranhAdapter(this,0,truyenTranhArrayList);
     }
     private void anhXa(){
