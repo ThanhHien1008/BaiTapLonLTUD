@@ -11,10 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-
+import com.bumptech.glide.Glide;
 import com.example.appdoctruyentranh.R;
 
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +29,20 @@ public class TruyenTranhAdapter extends ArrayAdapter<TruyenTranh> {
         this.arr = new ArrayList<>(objects);
     }
 
-    @NonNull
+    public void sortTruyen(String s) {
+        s=s.toUpperCase();
+        int k=0;
+        for(int i=0;i<arr.size();i++) {
+        TruyenTranh t =arr.get(i);
+        String ten= t.getTenTruyen().toUpperCase();
+        if(ten.indexOf(s)>=0) {
+            arr.set(i,arr.get(k));
+            arr.set(k,t);
+            k++;
+        }
+    }
+        notifyDataSetChanged();
+    }
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if (convertView == null) {
@@ -42,10 +54,11 @@ public class TruyenTranhAdapter extends ArrayAdapter<TruyenTranh> {
 
             TextView tenTenTruyen = convertView.findViewById(R.id.txvTenTruyen);
             TextView tenTenChap = convertView.findViewById(R.id.txvTenChap);
-            ImageView imageAnhtruyen = convertView.findViewById((R.id.imgAnhTruyen));
+            ImageView imgAnhtruyen = convertView.findViewById((R.id.imgAnhTruyen));
 
             tenTenTruyen.setText(truyenTranh.getTenTruyen());
             tenTenChap.setText(truyenTranh.getTenChap());
-            Glide.with(this).load("https://goo.gl/gEgYUd").into(imageView);
+            Glide.with(this.ct).load(truyenTranh.getLinkAnh()).into(imgAnhtruyen);
         }
-    }
+        return  convertView;
+    }}
