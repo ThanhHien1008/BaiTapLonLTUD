@@ -3,17 +3,25 @@ package com.example.appdoctruyentranh;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 import adapter.TruyenTranhAdapter;
+import api.ApiLayTruyen;
+import interfaces.LayTruyenVe;
 import object.TruyenTranh;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements LayTruyenVe {
 GridView gdvDSTruyen;
 TruyenTranhAdapter adapter;
 ArrayList<TruyenTranh> truyenTranhArrayList;
@@ -26,17 +34,10 @@ EditText edtTimKiem;
         anhXa();
         setUp();
         setClik();
+        new ApiLayTruyen(this).execute();
     }
     private void init(){
         truyenTranhArrayList = new ArrayList<>();
-        truyenTranhArrayList.add(new TruyenTranh("a","Chapter 24","https://vov2-media.emitech.vn/sites/default/files/styles/large/public/2022-07/image001.jpg"));
-        truyenTranhArrayList.add(new TruyenTranh("Tham tu lung danh Conan","Chapter 242","https://vov2-media.emitech.vn/sites/default/files/styles/large/public/2022-07/image001.jpg"));
-        truyenTranhArrayList.add(new TruyenTranh("v","Chapter 2.2","https://vov2-media.emitech.vn/sites/default/files/styles/large/public/2022-07/image001.jpg"));
-        truyenTranhArrayList.add(new TruyenTranh("Tư","Chapter 4.2","https://vov2-media.emitech.vn/sites/default/files/styles/large/public/2022-07/image001.jpg"));
-        truyenTranhArrayList.add(new TruyenTranh("vsa","Chapter 2","https://vov2-media.emitech.vn/sites/default/files/styles/large/public/2022-07/image001.jpg"));
-        truyenTranhArrayList.add(new TruyenTranh("sa","Chapter 4","https://vov2-media.emitech.vn/sites/default/files/styles/large/public/2022-07/image001.jpg"));
-        truyenTranhArrayList.add(new TruyenTranh("gb","Chapter 22","https://vov2-media.emitech.vn/sites/default/files/styles/large/public/2022-07/image001.jpg"));
-        truyenTranhArrayList.add(new TruyenTranh("sdv","Chapter 42","https://vov2-media.emitech.vn/sites/default/files/styles/large/public/2022-07/image001.jpg"));
 
         adapter=new TruyenTranhAdapter(this,0,truyenTranhArrayList);
     }
@@ -65,5 +66,35 @@ String s =edtTimKiem.getText().toString();
 adapter.sortTruyen(s);
             }
         });
+    }
+
+    @Override
+    public void batDau() {
+        Toast.makeText(this,"Dang Lay Ve",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void ketThuc(String data) {
+        try {
+            truyenTranhArrayList.clear();
+            JSONArray arr = new JSONArray(data);
+            for (int i=0;i<arr.length();i++){
+                JSONObject o = arr.getJSONObject(i);
+                truyenTranhArrayList.add(new TruyenTranh(o));
+            }
+            adapter=new TruyenTranhAdapter(this,0,truyenTranhArrayList);
+            gdvDSTruyen.setAdapter(adapter);
+        }catch (JSONException e){
+
+        }
+    }
+
+    @Override
+    public void biLoi() {
+        Toast.makeText(this,"Loi ket noi",Toast.LENGTH_SHORT).show();
+    }
+
+    public void update(View view) {
+        new ApiLayTruyen(this).execute();
     }
 }

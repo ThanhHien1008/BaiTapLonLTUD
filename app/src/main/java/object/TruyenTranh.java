@@ -1,8 +1,26 @@
 package object;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class TruyenTranh {
     private String tenTruyen,tenChap,LinkAnh;
-    public TruyenTranh(){}
+    /*
+    {
+    "tenTruyen":"",
+        "tenChap":"",
+            "linkAnh":""
+
+    }
+     */
+    public TruyenTranh(){
+
+    }
+    public TruyenTranh(JSONObject o) throws JSONException {
+        tenTruyen = o.getString("tenTruyen");
+        tenChap = o.getString("tenChap");
+        LinkAnh = o.getString("linkAnh");
+    }
     public TruyenTranh(String tenTruyen, String tenChap, String linkAnh) {
         this.tenTruyen = tenTruyen;
         this.tenChap = tenChap;
