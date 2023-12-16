@@ -1,9 +1,11 @@
 package com.example.appdoctruyentranh;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Toast;
@@ -21,11 +23,11 @@ import api.ApiLayTruyen;
 import interfaces.LayTruyenVe;
 import object.TruyenTranh;
 
-public class MainActivity extends AppCompatActivity implements LayTruyenVe {
-GridView gdvDSTruyen;
-TruyenTranhAdapter adapter;
-ArrayList<TruyenTranh> truyenTranhArrayList;
-EditText edtTimKiem;
+public class  MainActivity extends AppCompatActivity implements LayTruyenVe {
+    GridView gdvDSTruyen;
+    TruyenTranhAdapter adapter;
+    ArrayList<TruyenTranh> truyenTranhArrayList;
+    EditText edtTimKiem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,10 +64,22 @@ EditText edtTimKiem;
 
             @Override
             public void afterTextChanged(Editable editable) {
-String s =edtTimKiem.getText().toString();
-adapter.sortTruyen(s);
+                String s =edtTimKiem.getText().toString();
+                adapter.sortTruyen(s);
             }
         });
+        gdvDSTruyen.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
+                TruyenTranh truyenTranh = truyenTranhArrayList.get(i);
+                Bundle b = new Bundle();
+                b.putSerializable("truyen",truyenTranh);
+                Intent intent = new Intent(MainActivity.this,ChapActivity.class);
+                intent.putExtra( "data",b);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
