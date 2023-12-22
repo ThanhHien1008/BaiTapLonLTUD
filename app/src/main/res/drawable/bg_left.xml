@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
+<<<<<<< HEAD
 <solid android:color="#7E000000"/>
     <corners android:bottomRightRadius="25dp"
         android:topRightRadius="25dp"/>
+=======
+<solid android:color="#7E000000" />
+    <corners android:bottomRightRadius="25dp"
+        android:topRightRadius="25dp"/>
+
+>>>>>>> 49c0df9 (truyentranh)
 </shape>

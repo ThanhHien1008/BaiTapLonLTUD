@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" tools:context=".DocTruyenActivity">
+=======
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DocTruyenActivity">
+>>>>>>> 49c0df9 (truyentranh)
     <ImageView
         android:id="@+id/imgAnh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+<<<<<<< HEAD
     <ImageView
         android:onClick="left"
         android:layout_width="60dp"
@@ -24,6 +34,26 @@
         android:rotation="180"
         android:src="@drawable/left"
         app:tint="#fff" />
+=======
+        <ImageView
+            android:onClick="left"
+            android:background="@drawable/bg_left"
+            android:padding="10dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/left"/>
+    <ImageView
+        android:onClick="right"
+        android:background="@drawable/bg_left"
+        android:padding="10dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:rotation="180"
+        android:src="@drawable/left"/>
+>>>>>>> 49c0df9 (truyentranh)
     <TextView
         android:id="@+id/txvSoTrang"
         android:layout_width="wrap_content"
@@ -38,4 +68,8 @@
         android:layout_marginBottom="30dp"
         android:paddingRight="10dp"
         android:background="@drawable/bg_so_trang"/>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 49c0df9 (truyentranh)
 </RelativeLayout>

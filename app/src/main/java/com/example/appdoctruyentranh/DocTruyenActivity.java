@@ -1,5 +1,6 @@
 package com.example.appdoctruyentranh;
 
+<<<<<<< HEAD
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -19,18 +20,38 @@ import com.example.appdoctruyentranh.api.ApiLayTruyen;
 import com.example.appdoctruyentranh.interfaces.LayAnhVe;
 import com.example.appdoctruyentranh.object.ChapTruyen;
 import com.example.appdoctruyentranh.object.TruyenTranh;
+=======
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
+>>>>>>> 49c0df9 (truyentranh)
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.ArrayList;
 
+<<<<<<< HEAD
+=======
+import api.ApiLayAnh;
+import interfaces.LayAnhVe;
+
+>>>>>>> 49c0df9 (truyentranh)
 public class DocTruyenActivity extends AppCompatActivity implements LayAnhVe {
     ImageView imgAnh;
     ArrayList<String> arrUrlAnh;
     int soTrang,soTrangDangDoc;
     TextView txvSoTrang;
     String idChap;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 49c0df9 (truyentranh)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +59,7 @@ public class DocTruyenActivity extends AppCompatActivity implements LayAnhVe {
         init();
         anhXa();
         setUp();
+<<<<<<< HEAD
         setClik();
         new ApiLayAnh(this,idChap).execute();
     }
@@ -78,6 +100,33 @@ public class DocTruyenActivity extends AppCompatActivity implements LayAnhVe {
 
     public void right(View view) {
         docTheoTrang(1);
+=======
+        setClick();
+        new ApiLayAnh(this,idChap).execute();
+    }
+    private void init(){
+        Bundle b = getIntent().getBundleExtra("data");
+        idChap= b.getString("idChap");
+    }
+    private void anhXa(){
+        imgAnh = findViewById(R.id.imgAnh);
+        txvSoTrang = findViewById(R.id.txvSoTrang);
+    }
+    private void setUp(){
+        //docTheoTrang(0);
+    }
+    private void setClick(){
+
+    }
+
+
+
+
+
+
+    public void right(View view) {
+        docTheoTrang(+1);
+>>>>>>> 49c0df9 (truyentranh)
     }
 
     public void left(View view) {
@@ -85,14 +134,22 @@ public class DocTruyenActivity extends AppCompatActivity implements LayAnhVe {
     }
 
     private void docTheoTrang(int i){
+<<<<<<< HEAD
         soTrangDangDoc= soTrangDangDoc+i;
+=======
+        soTrangDangDoc = soTrangDangDoc+i;
+>>>>>>> 49c0df9 (truyentranh)
         if(soTrangDangDoc==0){
             soTrangDangDoc=1;
         }
         if(soTrangDangDoc>soTrang){
             soTrangDangDoc = soTrang;
         }
+<<<<<<< HEAD
         txvSoTrang.setText(soTrangDangDoc+" / "+soTrang);
+=======
+        txvSoTrang.setText(soTrangDangDoc+"/"+soTrang);
+>>>>>>> 49c0df9 (truyentranh)
         Glide.with(this).load(arrUrlAnh.get(soTrangDangDoc-1)).into(imgAnh);
     }
 
@@ -103,6 +160,7 @@ public class DocTruyenActivity extends AppCompatActivity implements LayAnhVe {
 
     @Override
     public void ketThuc(String data) {
+<<<<<<< HEAD
         try {
             arrUrlAnh = new ArrayList<>();
             JSONArray array = new JSONArray(data);
@@ -114,6 +172,19 @@ public class DocTruyenActivity extends AppCompatActivity implements LayAnhVe {
             docTheoTrang(0);
         } catch (JSONException e) {
             e.printStackTrace();
+=======
+        arrUrlAnh = new ArrayList<>();
+        try {
+            soTrangDangDoc =1;
+            soTrang=arrUrlAnh.size();
+            docTheoTrang(0);
+            JSONArray arr = new JSONArray(data);
+            for(int i=0;i<arr.length();i++){
+                arrUrlAnh.add(arr.getString(i));
+            }
+        }catch (JSONException e){
+
+>>>>>>> 49c0df9 (truyentranh)
         }
     }
 
@@ -121,4 +192,8 @@ public class DocTruyenActivity extends AppCompatActivity implements LayAnhVe {
     public void biLoi() {
 
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 49c0df9 (truyentranh)
