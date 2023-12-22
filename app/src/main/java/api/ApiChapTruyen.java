@@ -10,7 +10,10 @@ import com.squareup.okhttp.ResponseBody;
 import java.io.IOException;
 
 import interfaces.LayChapVe;
+<<<<<<< HEAD
 import interfaces.LayTruyenVe;
+=======
+>>>>>>> dd5c1e1 (truyentranh)
 
 public class ApiChapTruyen extends AsyncTask<Void,Void,Void> {
     String data;

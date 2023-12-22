@@ -20,7 +20,11 @@
         android:gravity="center_vertical|right"
         android:text="25-11-2023"
         android:textColor="#A3000000"
+<<<<<<< HEAD
         android:textSize="13sp"
+=======
+        android:textSize="13dp"
+>>>>>>> dd5c1e1 (truyentranh)
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         ></TextView>
